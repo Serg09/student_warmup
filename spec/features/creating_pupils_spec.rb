@@ -3,15 +3,14 @@ require "rails_helper"
 feature "Pupils CRUD" do
   scenario "User creates a new pupil" do
     visit "/pupils/new"
-# save_and_open_page
+
     fill_in "First Name", :with => "Julie"
     fill_in "Last Name", :with => "Smith"
     fill_in "Email", :with => "julie@smith.com"
     fill_in "Age", :with => "17"
-    fill_in "Gender", :with => "F"
 
     click_button "Create"
-# save_and_open_page
+
     expect(page).to have_content("Pupil Julie Smith added.")
   end
 
@@ -20,8 +19,7 @@ feature "Pupils CRUD" do
       first_name: 'Ted',
       last_name: 'Smith',
       email: 'ted@smith.com',
-      age: 15,
-      gender: 'M'
+      age: 15
     )
     visit edit_pupil_path(pupil)
 

@@ -28,7 +28,7 @@ class PupilsController < ApplicationController
 
     respond_to do |format|
       if @pupil.save
-        format.html { redirect_to @pupil, notice: "Pupil #{@pupil.first_name} #{@pupil.last_name} added." }
+        format.html { redirect_to @pupil, notice: 'Pupil was successfully created.' }
         format.json { render :show, status: :created, location: @pupil }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PupilsController < ApplicationController
   def update
     respond_to do |format|
       if @pupil.update(pupil_params)
-        format.html { redirect_to @pupil, notice: "Pupil #{@pupil.first_name} #{@pupil.last_name} updated." }
+        format.html { redirect_to @pupil, notice: 'Pupil was successfully updated.' }
         format.json { render :show, status: :ok, location: @pupil }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class PupilsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pupil_params
-      params.require(:pupil).permit(:first_name, :last_name, :email, :age, :gender)
+      params.require(:pupil).permit(:first_name, :last_name, :email, :age)
     end
 end
